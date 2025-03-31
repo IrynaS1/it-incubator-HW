@@ -7,17 +7,20 @@ type UserList2PropsType = {
 };
 
 export const UserList2 = (props: UserList2PropsType) => {
+	const filteredUsers = () => {
+		props.filterUsers();
+	}
   return (
     <div id={"hw02-users"}>
       <h2>User List:</h2>
 
-      <button id={"hw02-filter-button"} onClick={() => props.filterUsers}>
+      <button id={"hw02-filter-button"} onClick={filteredUsers}>
         SHOW ME FRIENDS FROM LA
       </button>
 
       <ul>
         {props.users.myFriends.map((user) => (
-          <CurrentUser user={user} />
+			  <CurrentUser user={user} />
         ))}
       </ul>
     </div>
